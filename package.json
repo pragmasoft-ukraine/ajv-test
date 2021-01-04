@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "postbuild": "node build"
+    "start": "tsc",
+    "poststart": "node build"
   },
   "author": "",
   "license": "ISC",
