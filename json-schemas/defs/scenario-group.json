@@ -6,7 +6,7 @@
   "required": [
     "index",
     "title",
-    "occurence",
+    "occurrence",
     "type",
     "probability",
     "scenarios"

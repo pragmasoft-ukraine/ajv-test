@@ -1,5 +1,4 @@
 import Ajv, { SchemaObject, ValidateFunction } from 'ajv';
-import { Cat, Person } from '../dto/dto-types';
 
 import applyRequestScheme from '../json-schemas/schemas/apply-req.json';
 import applyResultScheme from '../json-schemas/schemas/apply-result.json';
@@ -18,7 +17,7 @@ import laScenarioTableScheme from '../json-schemas/defs/la-scenario.json';
 import scenarioGroupTableScheme from '../json-schemas/defs/scenario-group.json';
 import statValueScheme from '../json-schemas/defs/stat-value.json';
 
-export type S3ObjectType = 'applyRequest' | 'laCalculationRequest' | 'applyResult' | 'laResult' | 'scenarioData';
+export type S3ObjectSchemaId = 'applyRequest' | 'applyResult' | 'laCalculationRequest' | 'laResult' | 'scenarioData';
 
 export class S3PayloadValidationService {
   private ajv = new Ajv({
@@ -42,7 +41,7 @@ export class S3PayloadValidationService {
   }).addFormat('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
 
   private ojbectSchemeMap: {
-    [key in S3ObjectType]: SchemaObject;
+    [key in S3ObjectSchemaId]: SchemaObject;
   } = {
     applyRequest: applyRequestScheme,
     applyResult: applyResultScheme,
@@ -51,7 +50,7 @@ export class S3PayloadValidationService {
     scenarioData: scenarioDataScheme,
   };
 
-  getObjectValidator(objectType: S3ObjectType): ValidateFunction<Cat | Person> {
+  getObjectValidator(objectType: S3ObjectSchemaId): ValidateFunction<object> {
     const schema = this.ojbectSchemeMap[objectType];
     return this.ajv.compile(schema);
   }

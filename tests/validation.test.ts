@@ -1,8 +1,18 @@
-import { S3PayloadValidationService } from '../services/validation-service';
+import { S3ObjectSchemaId, S3PayloadValidationService } from '../services/validation-service';
 
-import validScenarioData from './validScenarioData.json';
-import validApplyRequest from './validApplyRequest.json';
-import invalidScenarioData from './invalidScenarioData.json';
+import validApplyRequest from './res/validApplyRequest.json';
+import validApplyResultRequest from './res/validApplyResultRequest.json';
+import validLaCalcRequest from './res/validLaCalcRequest.json';
+import validLaResultRequest from './res/validLaResultRequest.json';
+import validScenarioDataRequest from './res/validScenarioDataRequest.json';
+
+import invalidRequest from './res/invalidRequest.json';
+
+interface SchemaTestCase {
+  objectId: string;
+  payload: object;
+  expected: boolean;
+}
 
 describe('S3PayloadValidationService validation', () => {
   let validationService: S3PayloadValidationService;
@@ -11,21 +21,81 @@ describe('S3PayloadValidationService validation', () => {
     validationService = new S3PayloadValidationService();
   });
 
-  test('Validator should return true when payload is valid', () => {
-    const validator = validationService.getObjectValidator('scenarioData');
-    const valid = validator(validScenarioData);
-    expect(valid).toEqual(true);
+  const validTestCases: SchemaTestCase[] = [
+    {
+      objectId: 'applyRequest',
+      payload: validApplyRequest,
+      expected: true,
+    },
+    {
+      objectId: 'applyResult',
+      payload: validApplyResultRequest,
+      expected: true,
+    },
+    {
+      objectId: 'laCalculationRequest',
+      payload: validLaCalcRequest,
+      expected: true,
+    },
+    {
+      objectId: 'laResult',
+      payload: validLaResultRequest,
+      expected: true,
+    },
+    {
+      objectId: 'scenarioData',
+      payload: validScenarioDataRequest,
+      expected: true,
+    },
+  ];
+
+  const invalidTestCases: SchemaTestCase[] = [
+    {
+      objectId: 'applyRequest',
+      payload: invalidRequest,
+      expected: false,
+    },
+    {
+      objectId: 'applyResult',
+      payload: invalidRequest,
+      expected: false,
+    },
+    {
+      objectId: 'laCalculationRequest',
+      payload: invalidRequest,
+      expected: false,
+    },
+    {
+      objectId: 'laResult',
+      payload: invalidRequest,
+      expected: false,
+    },
+    {
+      objectId: 'scenarioData',
+      payload: invalidRequest,
+      expected: false,
+    },
+  ];
+
+  validTestCases.forEach((testCase) => {
+    test(`Validator for ${testCase.objectId} with valid payload should return true`, () => {
+      run(testCase);
+    });
   });
 
-  test('Validator should return false when payload is invalid for current object type', () => {
-    const validator = validationService.getObjectValidator('scenarioData');
-    const valid = validator(invalidScenarioData);
-    expect(valid).toEqual(false);
+  invalidTestCases.forEach((testCase) => {
+    test(`Validator for ${testCase.objectId} with invalid payload should return false`, () => {
+      run(testCase);
+    });
   });
 
-  test('Validator should return false when payload is valid but not for current object type', () => {
-    const validator = validationService.getObjectValidator('scenarioData');
-    const valid = validator(validApplyRequest);
-    expect(valid).toEqual(false);
-  });
+  const run = ({ objectId, payload, expected }: SchemaTestCase) => {
+    const validator = validationService.getObjectValidator(objectId as S3ObjectSchemaId);
+    const valid = validator(payload);
+    expect(valid).toEqual(expected);
+  };
+
+  // test('Validator should return errors when payload is invaild', () => {
+    
+  // });
 });

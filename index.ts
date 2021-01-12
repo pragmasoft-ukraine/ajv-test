@@ -1,36 +1,27 @@
-import { S3PayloadValidationService } from './services/validation-service';
+import { S3ObjectSchemaId, S3PayloadValidationService } from './services/validation-service';
 
-import validScenarioData from './tests/validScenarioData.json';
+import validApplyRequest from './tests/res/validApplyRequest.json';
+import validApplyResultRequest from './tests/res/validApplyResultRequest.json';
+import validLaCalcRequest from './tests/res/validLaCalcRequest.json';
+import validLaResultRequest from './tests/res/validLaResultRequest.json';
+import validScenarioDataRequest from './tests/res/validScenarioDataRequest.json';
 
-const testObject = {
-};
+import invalidRequest from './tests/res/invalidRequest.json';
 
 const validationService = new S3PayloadValidationService();
 
-// let validator = validationService.getObjectValidator('applyRequest');
-// console.log(validator(testObject));
-// console.log(validator.errors);
+const cases = [
+  {
+    objectId: 'laCalculationRequest',
+    payload: validLaCalcRequest,
+    expected: true,
+  },
+];
+const run = ({ objectId, payload, expected }: any) => {
+  const validator = validationService.getObjectValidator(objectId as S3ObjectSchemaId);
+  const valid = validator(payload);
+  console.log(valid);
+  console.log(validator.errors);
+};
 
-// validator = validationService.getObjectValidator('laCalculationRequest');
-// console.log(validator(testObject));
-// console.log(validator.errors);
-
-// validator = validationService.getObjectValidator('applyResult');
-// console.log(validator(testObject));
-// console.log(validator.errors);
-
-// validator = validationService.getObjectValidator('laResult');
-// console.log(validator(testObject));
-// console.log(validator.errors);
-
-// validator = validationService.getObjectValidator('scenarioData');
-// console.log(validator(testObject));
-// console.log(validator.errors);
-
-const validator = validationService.getObjectValidator('scenarioData');
-const valid = validator(validScenarioData);
-console.log(typeof validScenarioData.scenario.buildModel.fullTree.customers[0]);
-
-console.log(valid);
-console.log(validator.errors);
-
+cases.forEach(run);
