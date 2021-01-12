@@ -17,7 +17,7 @@
       "type": "string"
     },
     "description": {
-      "type": "string"
+      "type": ["string"]
     },
     "author": {
       "type": "string"

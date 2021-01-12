@@ -1,0 +1,363 @@
+{
+    "id": "c529b16d-824e-49d4-9a5c-98acb09aa4ac",
+    "title": "testscenario",
+    "author": "Maxsym",
+    "scenario": {
+        "mapExpandedNaics": [],
+        "buildExpandedNaics": [
+            "52111",
+            "52211",
+            "52212",
+            "52213",
+            "52219",
+            "5211",
+            "5221",
+            "521",
+            "522",
+            "52"
+        ],
+        "selectedNodeId": "90000",
+        "multiSelectedNodeId": [],
+        "filters": [
+            {
+                "type": 4,
+                "domain": [
+                    0.03,
+                    1
+                ],
+                "domainBounds": [
+                    0,
+                    1
+                ],
+                "key": "link",
+                "mapping": "vro"
+            },
+            {
+                "type": 2,
+                "id": "FU"
+            },
+            {
+                "type": 2,
+                "id": "F45"
+            },
+            {
+                "type": 2,
+                "id": "F450"
+            },
+            {
+                "type": 2,
+                "id": "F4500"
+            },
+            {
+                "type": 2,
+                "id": "F04000"
+            },
+            {
+                "type": 2,
+                "id": "F05000"
+            },
+            {
+                "type": 2,
+                "id": "F12"
+            },
+            {
+                "type": 2,
+                "id": "F120"
+            },
+            {
+                "type": 2,
+                "id": "F1200"
+            },
+            {
+                "type": 2,
+                "id": "F01000"
+            },
+            {
+                "type": 2,
+                "id": "F02R00"
+            },
+            {
+                "type": 2,
+                "id": "F23"
+            },
+            {
+                "type": 2,
+                "id": "F230"
+            },
+            {
+                "type": 2,
+                "id": "F2300"
+            },
+            {
+                "type": 2,
+                "id": "F02E00"
+            },
+            {
+                "type": 2,
+                "id": "F02N00"
+            },
+            {
+                "type": 2,
+                "id": "F02S00"
+            },
+            {
+                "type": 2,
+                "id": "F03000"
+            },
+            {
+                "type": 2,
+                "id": "FC6"
+            },
+            {
+                "type": 2,
+                "id": "FC67"
+            },
+            {
+                "type": 2,
+                "id": "FC670"
+            },
+            {
+                "type": 2,
+                "id": "F06C00"
+            },
+            {
+                "type": 2,
+                "id": "F07C00"
+            },
+            {
+                "type": 2,
+                "id": "F10C00"
+            },
+            {
+                "type": 2,
+                "id": "F06"
+            },
+            {
+                "type": 2,
+                "id": "F067"
+            },
+            {
+                "type": 2,
+                "id": "F0600"
+            },
+            {
+                "type": 2,
+                "id": "F06E00"
+            },
+            {
+                "type": 2,
+                "id": "F06N00"
+            },
+            {
+                "type": 2,
+                "id": "F06S00"
+            },
+            {
+                "type": 2,
+                "id": "F0700"
+            },
+            {
+                "type": 2,
+                "id": "F07E00"
+            },
+            {
+                "type": 2,
+                "id": "F07N00"
+            },
+            {
+                "type": 2,
+                "id": "F07S00"
+            },
+            {
+                "type": 2,
+                "id": "F1000"
+            },
+            {
+                "type": 2,
+                "id": "F10E00"
+            },
+            {
+                "type": 2,
+                "id": "F10N00"
+            },
+            {
+                "type": 2,
+                "id": "F10S00"
+            },
+            {
+                "type": 2,
+                "id": "5221"
+            },
+            {
+                "type": 2,
+                "id": "52211"
+            },
+            {
+                "type": 2,
+                "id": "52212"
+            },
+            {
+                "type": 2,
+                "id": "522120"
+            },
+            {
+                "type": 2,
+                "id": "52213"
+            },
+            {
+                "type": 2,
+                "id": "522130"
+            },
+            {
+                "type": 2,
+                "id": "52219"
+            },
+            {
+                "type": 2,
+                "id": "522190"
+            }
+        ],
+        "scenarioFilters": [
+            {
+                "key": "policytype-0",
+                "column": "policytype",
+                "filter": {
+                    "options": [
+                        "Motor liability",
+                        "Aviation liability",
+                        "Marine liability",
+                        "Marine cargo liability",
+                        "Energy liability",
+                        "Employers liability / workers comp",
+                        "Product liability",
+                        "Public / general liability",
+                        "Environmental / pollution liability",
+                        "Professional liability / E&O",
+                        "Directors and officers liability (including D&O trustees)",
+                        "Cyber",
+                        "Cyber third party only",
+                        "Cyber first party only",
+                        "Employment practices liability insurance",
+                        "Unsupported umbrella / excess liability cover"
+                    ],
+                    "values": [
+                        "Directors and officers liability (including D&O trustees)"
+                    ],
+                    "portfolioOptions": [
+                        "Motor liability",
+                        "Aviation liability",
+                        "Marine liability",
+                        "Marine cargo liability",
+                        "Energy liability",
+                        "Employers liability / workers comp",
+                        "Product liability",
+                        "Public / general liability",
+                        "Environmental / pollution liability",
+                        "Professional liability / E&O",
+                        "Directors and officers liability (including D&O trustees)",
+                        "Cyber",
+                        "Cyber third party only",
+                        "Cyber first party only",
+                        "Employment practices liability insurance",
+                        "Unsupported umbrella / excess liability cover",
+                        "Product recall"
+                    ]
+                },
+                "inverted": false,
+                "includeNull": false,
+                "naics": {
+                    "values": []
+                }
+            }
+        ],
+        "portfolioFilters": [],
+        "portfolioRequestFilters": [],
+        "buildModel": {
+            "fullTree": {
+                "hierarchy": [
+                    "90000",
+                    "9000",
+                    "900",
+                    "90",
+                    "9"
+                ],
+                "level": 0,
+                "nodeId": 1,
+                "forceLayout": {
+                    "x": 0,
+                    "y": 0
+                }
+            },
+            "nextId": 2,
+            "forcedLinks": {}
+        },
+        "tab": 3,
+        "portfolio": {
+            "enabled": true
+        },
+        "settings": {
+            "defenseCosts": {
+                "Directors and officers liability (including D&O trustees)": {
+                    "value": 3.5,
+                    "monetary": [
+                        0,
+                        1000000000
+                    ],
+                    "lowerMonetaryBound": 0,
+                    "upperMonetaryBound": 1000000000
+                }
+            },
+            "nodes": {
+                "90000": {
+                    "accounts": 1,
+                    "culpability": 100,
+                    "liabilityBasis": 0,
+                    "locked": {},
+                    "marketShareMechanism": 2,
+                    "proRateAccounts": [
+                        1,
+                        null
+                    ],
+                    "share": {
+                        "Directors and officers liability (including D&O trustees)": 100
+                    },
+                    "naics": []
+                }
+            },
+            "eco": {
+                "range": [
+                    0,
+                    10000000000
+                ],
+                "value": 100000000
+            },
+            "noneco": {
+                "range": [
+                    0,
+                    10000000000
+                ],
+                "value": 0
+            },
+            "proRateCulpableAccounts": 0,
+            "multiYear": {
+                "activated": true,
+                "calendarYear": [
+                    {
+                        "year": "2014",
+                        "value": 100
+                    }
+                ],
+                "accountYear": [
+                    {
+                        "year": "2014",
+                        "value": 100
+                    }
+                ]
+            },
+            "currency": "USD"
+        },
+        "linkMode": 1,
+        "linkSetId": 1
+    },
+    "timestamp": 1610463526298
+}

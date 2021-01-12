@@ -9,11 +9,17 @@
     "column": {
       "type": "string"
     },
+    "domain": {
+      "type": ["object", "null"]
+    },
     "filter": {
       "type": "object",
       "properties": {
         "options": {
-          "type": "object"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "values": {
           "type": "array",

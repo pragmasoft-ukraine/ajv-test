@@ -30,7 +30,7 @@
       ],
       "filters": [
         {
-          "type": "2",
+          "type": 2,
           "id": "FU"
         }
       ],
@@ -39,7 +39,7 @@
           "key": "policytype-0",
           "column": "policytype",
           "filter": {
-            "options": {},
+            "options": [],
             "values": [
               "Product liability",
               "Marine liability"
@@ -58,7 +58,7 @@
           "key": "policytype-0",
           "column": "policytype",
           "filter": {
-            "options": {},
+            "options": [],
             "values": [
               "Product liability",
               "Marine liability"
@@ -116,7 +116,7 @@
       },
       "settings": {
         "currency": "USD",
-        "defenceCosts": {
+        "defenseCosts": {
           "additionalProp1": {
             "value": 2,
             "range": [
@@ -236,6 +236,6 @@
         }
       },
       "linkMode": 0,
-      "linkId": 0
+      "linkSetId": 0
     }
   }

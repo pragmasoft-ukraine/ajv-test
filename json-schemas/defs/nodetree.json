@@ -12,6 +12,17 @@
     "nodeId": {
       "type": "integer"
     },
+    "forceLayout": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
     "hierarchy": {
       "type": "array",
       "items": {

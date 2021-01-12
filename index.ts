@@ -4,7 +4,9 @@ import validApplyRequest from './tests/res/validApplyRequest.json';
 import validApplyResultRequest from './tests/res/validApplyResultRequest.json';
 import validLaCalcRequest from './tests/res/validLaCalcRequest.json';
 import validLaResultRequest from './tests/res/validLaResultRequest.json';
-import validScenarioDataRequest from './tests/res/validScenarioDataRequest.json';
+import validScenariosPostRequest1 from './tests/res/validScenariosPostRequest1.json';
+import validScenariosPostRequest2 from './tests/res/validScenariosPostRequest2.json';
+import validScenariosPostRequest3 from './tests/res/validScenariosPostRequest3.json';
 
 import invalidRequest from './tests/res/invalidRequest.json';
 
@@ -12,8 +14,8 @@ const validationService = new S3PayloadValidationService();
 
 const cases = [
   {
-    objectId: 'laCalculationRequest',
-    payload: validLaCalcRequest,
+    objectId: 'http://example.com/schemas/scenariodata.json',
+    payload: validScenariosPostRequest3,
     expected: true,
   },
 ];

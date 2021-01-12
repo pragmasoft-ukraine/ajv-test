@@ -36,7 +36,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "integer"
           },
           "id": {
             "type": "string"
@@ -62,7 +62,14 @@
       "description": "Portfolio reuest filters",
       "type": "array",
       "items": {
-        "$ref": "./portfolio-req-filter.json"
+        "oneOf": [
+          {
+            "$ref": "./portfolio-req-filter.json"
+          },
+          {
+            "$ref": "./scenariofilter.json"
+          }
+        ]
       }
     },
     "buildModel": {
@@ -97,7 +104,7 @@
     "linkMode": {
       "type": "integer"
     },
-    "linkId": {
+    "linkSetId": {
       "type": "integer"
     }
   }

@@ -10,7 +10,7 @@
     "currency": {
       "type": "string"
     },
-    "defenceCosts": {
+    "defenseCosts": {
       "type": "object",
       "additionalProperties": {
         "type": "object",

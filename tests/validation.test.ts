@@ -4,12 +4,15 @@ import validApplyRequest from './res/validApplyRequest.json';
 import validApplyResultRequest from './res/validApplyResultRequest.json';
 import validLaCalcRequest from './res/validLaCalcRequest.json';
 import validLaResultRequest from './res/validLaResultRequest.json';
-import validScenarioDataRequest from './res/validScenarioDataRequest.json';
+import validScenariosPostRequest1 from './res/validScenariosPostRequest1.json';
+import validScenariosPostRequest2 from './res/validScenariosPostRequest2.json';
+import validScenariosPostRequest3 from './res/validScenariosPostRequest3.json';
 
 import invalidRequest from './res/invalidRequest.json';
 
 interface SchemaTestCase {
   objectId: string;
+  payloadName: string;
   payload: object;
   expected: boolean;
 }
@@ -23,68 +26,42 @@ describe('S3PayloadValidationService validation', () => {
 
   const validTestCases: SchemaTestCase[] = [
     {
-      objectId: 'applyRequest',
-      payload: validApplyRequest,
+      objectId: 'http://example.com/schemas/scenariodata.json',
+      payload: validScenariosPostRequest1,
+      payloadName: 'valid scenarios post request 1',
       expected: true,
     },
     {
-      objectId: 'applyResult',
-      payload: validApplyResultRequest,
+      objectId: 'http://example.com/schemas/scenariodata.json',
+      payload: validScenariosPostRequest2,
+      payloadName: 'valid scenarios post request 2',
       expected: true,
     },
     {
-      objectId: 'laCalculationRequest',
-      payload: validLaCalcRequest,
-      expected: true,
-    },
-    {
-      objectId: 'laResult',
-      payload: validLaResultRequest,
-      expected: true,
-    },
-    {
-      objectId: 'scenarioData',
-      payload: validScenarioDataRequest,
+      objectId: 'http://example.com/schemas/scenariodata.json',
+      payload: validScenariosPostRequest3,
+      payloadName: 'valid scenarios post request 3',
       expected: true,
     },
   ];
 
   const invalidTestCases: SchemaTestCase[] = [
     {
-      objectId: 'applyRequest',
+      objectId: 'http://example.com/schemas/scenariodata.json',
       payload: invalidRequest,
-      expected: false,
-    },
-    {
-      objectId: 'applyResult',
-      payload: invalidRequest,
-      expected: false,
-    },
-    {
-      objectId: 'laCalculationRequest',
-      payload: invalidRequest,
-      expected: false,
-    },
-    {
-      objectId: 'laResult',
-      payload: invalidRequest,
-      expected: false,
-    },
-    {
-      objectId: 'scenarioData',
-      payload: invalidRequest,
+      payloadName: 'invalid scenarios post request',
       expected: false,
     },
   ];
 
   validTestCases.forEach((testCase) => {
-    test(`Validator for ${testCase.objectId} with valid payload should return true`, () => {
+    test(`Validator for object ${testCase.objectId} with payload '${testCase.payloadName}' should return true`, () => {
       run(testCase);
     });
   });
 
   invalidTestCases.forEach((testCase) => {
-    test(`Validator for ${testCase.objectId} with invalid payload should return false`, () => {
+    test(`Validator for object ${testCase.objectId} with payload '${testCase.payloadName}'should return false`, () => {
       run(testCase);
     });
   });
