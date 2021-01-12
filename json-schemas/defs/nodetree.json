@@ -1,0 +1,42 @@
+{
+  "$id": "http://example.com/schemas/nodetree.json",
+  "type": [
+    "object",
+    "null"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "level": {
+      "type": "integer"
+    },
+    "nodeId": {
+      "type": "integer"
+    },
+    "hierarchy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "customers": {
+      "type": "array",
+      "description": "Array of NodeTree, recursive",
+      "items": {
+        "$ref": "./nodetree.json"
+      }
+    },
+    "suppliers": {
+      "type": "array",
+      "description": "Array of NodeTree, recursive",
+      "items": {
+        "$ref": "./nodetree.json"
+      }
+    },
+    "parentId": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

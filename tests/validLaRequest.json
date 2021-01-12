@@ -1,0 +1,218 @@
+{
+    "labelType": "total",
+    "numberOfRuns": 1,
+    "occurrence": 0,
+    "randomSeed": 1398717928,
+    "contracts": [
+        {}
+    ],
+    "reinsurances": [
+        {}
+    ],
+    "currency": [
+        {
+            "code": "string",
+            "rate": 0
+        }
+    ],
+    "groups": [
+        {
+            "index": 0,
+            "title": "Canteloupe listeria",
+            "occurrence": 1,
+            "type": 0,
+            "probability": 0,
+            "scenarios": [
+                "6b9502b5-9591-4428-8b69-b0f1799b1f28"
+            ]
+        }
+    ],
+    "scenarios": [
+        {
+            "id": "6b9502b5-9591-4428-8b69-b0f1799b1f28",
+            "title": "Canteloupe listeria",
+            "groupIndex": 1,
+            "scenario": {
+                "portfolio": {},
+                "settings": {
+                    "currency": "USD",
+                    "defenceCosts": {
+                        "additionalProp1": {
+                            "value": 2,
+                            "range": [
+                                0,
+                                100
+                            ],
+                            "minetary": [
+                                10000,
+                                1000000
+                            ]
+                        },
+                        "additionalProp2": {
+                            "value": 2,
+                            "range": [
+                                0,
+                                100
+                            ],
+                            "minetary": [
+                                10000,
+                                1000000
+                            ]
+                        },
+                        "additionalProp3": {
+                            "value": 2,
+                            "range": [
+                                0,
+                                100
+                            ],
+                            "minetary": [
+                                10000,
+                                1000000
+                            ]
+                        }
+                    },
+                    "nodes": {
+                        "additionalProp1": {
+                            "accounts": 1,
+                            "culpability": 0,
+                            "liabilityBasis": 0,
+                            "locked": {},
+                            "marketShareMechanism": 3,
+                            "proRateAccounts": [
+                                null,
+                                1
+                            ],
+                            "naics": [
+                                "236118"
+                            ],
+                            "share": {
+                                "Aviation liability": 5.88235294117647
+                            }
+                        },
+                        "additionalProp2": {
+                            "accounts": 1,
+                            "culpability": 0,
+                            "liabilityBasis": 0,
+                            "locked": {},
+                            "marketShareMechanism": 3,
+                            "proRateAccounts": [
+                                null,
+                                1
+                            ],
+                            "naics": [
+                                "236118"
+                            ],
+                            "share": {
+                                "Aviation liability": 5.88235294117647
+                            }
+                        },
+                        "additionalProp3": {
+                            "accounts": 1,
+                            "culpability": 0,
+                            "liabilityBasis": 0,
+                            "locked": {},
+                            "marketShareMechanism": 3,
+                            "proRateAccounts": [
+                                null,
+                                1
+                            ],
+                            "naics": [
+                                "236118"
+                            ],
+                            "share": {
+                                "Aviation liability": 5.88235294117647
+                            }
+                        }
+                    },
+                    "eco": {
+                        "value": 150000000,
+                        "range": [
+                            125000000,
+                            1000000000
+                        ]
+                    },
+                    "noneco": {
+                        "value": 150000000,
+                        "range": [
+                            125000000,
+                            1000000000
+                        ]
+                    },
+                    "proRateCulpableAccounts": 1,
+                    "multiYear": {
+                        "activated": false,
+                        "calendarYear": [
+                            {
+                                "year": "2011",
+                                "value": 100
+                            }
+                        ],
+                        "accountYear": [
+                            {
+                                "year": "2011",
+                                "value": 100
+                            }
+                        ]
+                    }
+                },
+                "portfolioRequestFilters": [
+                    {
+                        "property": "policytype",
+                        "industrycodes": [
+                            "string"
+                        ],
+                        "in": [
+                            "string"
+                        ],
+                        "notin": [
+                            "string"
+                        ],
+                        "bvefore": "string",
+                        "after": "string",
+                        "gte": 0,
+                        "lte": 0,
+                        "include_null": true
+                    }
+                ],
+                "scenarioFilters": [
+                    {
+                        "key": "policytype-0",
+                        "column": "policytype",
+                        "filter": {
+                            "options": {},
+                            "values": [
+                                "Product liability",
+                                "Marine liability"
+                            ],
+                            "portfolioOptions": []
+                        },
+                        "inverted": false,
+                        "includeNull": false,
+                        "naics": {
+                            "values": []
+                        }
+                    }
+                ],
+                "portfolioFilters": [
+                    {
+                        "key": "policytype-0",
+                        "column": "policytype",
+                        "filter": {
+                            "options": {},
+                            "values": [
+                                "Product liability",
+                                "Marine liability"
+                            ],
+                            "portfolioOptions": []
+                        },
+                        "inverted": false,
+                        "includeNull": false,
+                        "naics": {
+                            "values": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+  "$id": "http://example.com/schemas/scenariodata.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "author",
+    "timestamp"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "author_updated": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "number"
+    },
+    "timestamp_updated": {
+      "type": "number"
+    },
+    "group": {
+      "type": "number"
+    },
+    "portfolioId": {
+      "type": "number"
+    },
+    "portfolioName": {
+      "type": "string"
+    },
+    "scenario": {
+      "$ref": "./scenariomodel.json"
+    }
+  }
+}

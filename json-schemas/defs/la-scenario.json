@@ -1,0 +1,56 @@
+{
+  "$id": "http://example.com/schemas/la-scenario.json",
+  "description": "Scenario in LA calculation request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "groupIndex",
+    "scenario"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "groupIndex": {
+      "type": "number"
+    },
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "portfolio": {
+          "type": "object"
+        },
+        "settings": {
+          "$ref": "./settings.json"
+        },
+        "portfolioRequestFilters": {
+          "description": "Portfolio reuest filters",
+          "type": "array",
+          "items": {
+            "$ref": "./portfolio-req-filter.json"
+          }
+        },
+        "scenarioFilters": {
+          "description": "Culpability -> Scenario filters",
+          "type": "array",
+          "items": {
+            "$ref": "./scenariofilter.json"
+          }
+        },
+        "portfolioFilters": {
+          "description": "Portfolio filters",
+          "type": "array",
+          "items": {
+            "$ref": "./scenariofilter.json"
+          }
+        }
+      }
+    }
+  }
+}

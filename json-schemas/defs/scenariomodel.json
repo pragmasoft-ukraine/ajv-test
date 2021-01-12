@@ -1,0 +1,104 @@
+{
+  "$id": "http://example.com/schemas/scenariomodel.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mapExpandedNaics"
+  ],
+  "properties": {
+    "mapExpandedNaics": {
+      "description": "Industry codes of expanded nodes for Map view",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "buildExpandedNaics": {
+      "description": "Industry codes of expanded nodes for Build view",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selectedNodeId": {
+      "type": "string"
+    },
+    "multiSelectedNodeId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filters": {
+      "description": "Network filters",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scenarioFilters": {
+      "description": "Culpability -> Scenario filters",
+      "type": "array",
+      "items": {
+        "$ref": "./scenariofilter.json"
+      }
+    },
+    "portfolioFilters": {
+      "description": "Portfolio filters",
+      "type": "array",
+      "items": {
+        "$ref": "./scenariofilter.json"
+      }
+    },
+    "portfolioRequestFilters": {
+      "description": "Portfolio reuest filters",
+      "type": "array",
+      "items": {
+        "$ref": "./portfolio-req-filter.json"
+      }
+    },
+    "buildModel": {
+      "description": "Trade map model",
+      "type": "object",
+      "properties": {
+        "fullTree": {
+          "$ref": "./nodetree.json"
+        },
+        "nextId": {
+          "type": "integer"
+        }
+      }
+    },
+    "tab": {
+      "type": "integer"
+    },
+    "portfolio": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "settings": {
+      "$ref": "./settings.json"
+    },
+    "linkMode": {
+      "type": "integer"
+    },
+    "linkId": {
+      "type": "integer"
+    }
+  }
+}

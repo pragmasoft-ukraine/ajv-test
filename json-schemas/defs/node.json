@@ -1,0 +1,40 @@
+{
+  "$id": "http://example.com/schemas/node.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "type": "number"
+    },
+    "culpability": {
+      "type": "number"
+    },
+    "liabilityBasis": {
+      "type": "number"
+    },
+    "locked": {
+      "type": "object"
+    },
+    "marketShareMechanism": {
+      "type": "number"
+    },
+    "proRateAccounts": {
+      "type": "array",
+      "items": {
+        "type": ["number", "null"]
+      }
+    },
+    "naics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "share": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    }
+  }
+}

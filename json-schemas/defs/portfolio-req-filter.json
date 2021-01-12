@@ -1,0 +1,43 @@
+{
+  "$id": "http://example.com/schemas/portfolio-req-filter.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "property": {
+      "type": "string"
+    },
+    "industrycodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "in": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notin": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bvefore": {
+      "type": "string"
+    },
+    "after": {
+      "type": "string"
+    },
+    "gte": {
+      "type": "number"
+    },
+    "lte": {
+      "type": "number"
+    },
+    "include_null": {
+      "type": "boolean"
+    }
+  }
+}

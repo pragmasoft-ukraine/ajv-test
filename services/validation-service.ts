@@ -1,22 +1,58 @@
-import Ajv, { ValidateFunction } from 'ajv';
+import Ajv, { SchemaObject, ValidateFunction } from 'ajv';
 import { Cat, Person } from '../dto/dto-types';
 
-import catSchema from '../scheme/cat-schema.json';
-import { personSchema } from '../scheme/person-scheme';
+import applyRequestScheme from '../json-schemas/schemas/apply-req.json';
+import applyResultScheme from '../json-schemas/schemas/apply-result.json';
+import laCalculationRequestScheme from '../json-schemas/schemas/la-calc-req.json';
+import laResultScheme from '../json-schemas/schemas/la-result.json';
+import scenarioDataScheme from '../json-schemas/schemas/scenariodata.json';
 
-export type S3ObjectType = 'cat' | 'person';
+import scenarioModelScheme from '../json-schemas/defs/scenariomodel.json';
+import scenarioFilterScheme from '../json-schemas/defs/scenariofilter.json';
+import portfolioRequestFilterScheme from '../json-schemas/defs/portfolio-req-filter.json';
+import nodeTreeScheme from '../json-schemas/defs/nodetree.json';
+import settingsScheme from '../json-schemas/defs/settings.json';
+import nodeScheme from '../json-schemas/defs/node.json';
+import currencyTableScheme from '../json-schemas/defs/currency-table.json';
+import laScenarioTableScheme from '../json-schemas/defs/la-scenario.json';
+import scenarioGroupTableScheme from '../json-schemas/defs/scenario-group.json';
+import statValueScheme from '../json-schemas/defs/stat-value.json';
+
+export type S3ObjectType = 'applyRequest' | 'laCalculationRequest' | 'applyResult' | 'laResult' | 'scenarioData';
 
 export class S3PayloadValidationService {
-  private ajv = new Ajv();
+  private ajv = new Ajv({
+    schemas: [
+      applyRequestScheme,
+      applyResultScheme,
+      laCalculationRequestScheme,
+      laResultScheme,
+      scenarioDataScheme,
+      scenarioModelScheme,
+      scenarioFilterScheme,
+      portfolioRequestFilterScheme,
+      nodeTreeScheme,
+      settingsScheme,
+      nodeScheme,
+      currencyTableScheme,
+      laScenarioTableScheme,
+      scenarioGroupTableScheme,
+      statValueScheme,
+    ],
+  }).addFormat('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
 
   private ojbectSchemeMap: {
-    [key in S3ObjectType]: ValidateFunction<Cat | Person>;
+    [key in S3ObjectType]: SchemaObject;
   } = {
-    cat: this.ajv.compile(catSchema),
-    person: this.ajv.compile(personSchema),
+    applyRequest: applyRequestScheme,
+    applyResult: applyResultScheme,
+    laCalculationRequest: laCalculationRequestScheme,
+    laResult: laResultScheme,
+    scenarioData: scenarioDataScheme,
   };
 
   getObjectValidator(objectType: S3ObjectType): ValidateFunction<Cat | Person> {
-    return this.ojbectSchemeMap[objectType];
+    const schema = this.ojbectSchemeMap[objectType];
+    return this.ajv.compile(schema);
   }
 }

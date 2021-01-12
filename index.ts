@@ -1,29 +1,36 @@
 import { S3PayloadValidationService } from './services/validation-service';
 
-const cat = {
-  name: 'kitty',
-  age: 2,
-};
+import validScenarioData from './tests/validScenarioData.json';
 
-const person = {
-  name: 'ivan',
-  surname: 'ivanov',
+const testObject = {
 };
 
 const validationService = new S3PayloadValidationService();
 
-let validator = validationService.getObjectValidator('cat');
-console.log(`cat is cat? ${validator(cat)}`);
+// let validator = validationService.getObjectValidator('applyRequest');
+// console.log(validator(testObject));
+// console.log(validator.errors);
+
+// validator = validationService.getObjectValidator('laCalculationRequest');
+// console.log(validator(testObject));
+// console.log(validator.errors);
+
+// validator = validationService.getObjectValidator('applyResult');
+// console.log(validator(testObject));
+// console.log(validator.errors);
+
+// validator = validationService.getObjectValidator('laResult');
+// console.log(validator(testObject));
+// console.log(validator.errors);
+
+// validator = validationService.getObjectValidator('scenarioData');
+// console.log(validator(testObject));
+// console.log(validator.errors);
+
+const validator = validationService.getObjectValidator('scenarioData');
+const valid = validator(validScenarioData);
+console.log(typeof validScenarioData.scenario.buildModel.fullTree.customers[0]);
+
+console.log(valid);
 console.log(validator.errors);
 
-validator = validationService.getObjectValidator('cat');
-console.log(`person is cat? ${validator(person)}`);
-console.log(validator.errors);
-
-validator = validationService.getObjectValidator('person');
-console.log(`cat is person? ${validator(cat)}`);
-console.log(validator.errors);
-
-validator = validationService.getObjectValidator('person');
-console.log(`person is person? ${validator(person)}`);
-console.log(validator.errors);

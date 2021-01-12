@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc",
-    "poststart": "node build"
+    "poststart": "node build",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "@types/node": "^14.14.16",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
     "typescript": "^4.1.3"
   },
   "dependencies": {

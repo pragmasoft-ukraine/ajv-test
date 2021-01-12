@@ -1,0 +1,99 @@
+{
+  "$id": "http://example.com/schemas/la-result.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "topMetrics",
+    "scenarios",
+    "labels"
+  ],
+  "properties": {
+    "topMetrics": {
+      "type": "object",
+      "properties": {
+        "eco": {
+          "type": "number"
+        },
+        "noneco": {
+          "type": "number"
+        },
+        "gross": {
+          "type": "number"
+        },
+        "defence": {
+          "type": "number"
+        },
+        "damages": {
+          "type": "number"
+        },
+        "aggregates": {
+          "type": "number"
+        },
+        "ratio": {
+          "type": "number"
+        }
+      }
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "metrics": {
+                  "type": "object",
+                  "properties": {
+                    "eco": {
+                      "$ref": "./stat-value.json"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nodes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "eco": {
+                  "type": "number"
+                },
+                "noneco": {
+                  "type": "number"
+                },
+                "gross": {
+                  "type": "number"
+                },
+                "total": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

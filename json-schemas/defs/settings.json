@@ -1,0 +1,110 @@
+{
+  "$id": "http://example.com/schemas/settings.json",
+  "description": "Culpability properties",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "currency"
+  ],
+  "properties": {
+    "currency": {
+      "type": "string"
+    },
+    "defenceCosts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "range": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "minetary": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "./node.json"
+      }
+    },
+    "eco": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "noneco": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "proRateCulpableAccounts": {
+      "type": "number"
+    },
+    "multiYear": {
+      "type": "object",
+      "properties": {
+        "activated": {
+          "type": "boolean"
+        },
+        "calendarYear": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "accountYear": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

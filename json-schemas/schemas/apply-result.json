@@ -1,0 +1,85 @@
+{
+  "$id": "http://example.com/schemas/apply-result.json",
+  "description": "Scenario properties batch result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scenario_properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "nodes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "visible": {
+                "type": "boolean"
+              },
+              "graph": {
+                "type": "boolean"
+              },
+              "expanded": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "visible": {
+                "type": "boolean"
+              },
+              "graph": {
+                "type": "boolean"
+              },
+              "vro": {
+                "type": "number"
+              },
+              "vri": {
+                "type": "number"
+              },
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "naics": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "visible": {
+                "type": "boolean"
+              },
+              "graph": {
+                "type": "boolean"
+              },
+              "expanded": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

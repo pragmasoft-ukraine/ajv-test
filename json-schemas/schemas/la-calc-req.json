@@ -1,0 +1,57 @@
+{
+  "$id": "http://example.com/schemas/la-calc-req.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "labelType",
+    "numberOfRuns",
+    "occurrence",
+    "randomSeed",
+    "reinsurances",
+    "contracts",
+    "currency",
+    "groups",
+    "scenarios"
+  ],
+  "properties": {
+    "labelType": {
+      "type": "string"
+    },
+    "numberOfRuns": {
+      "type": "number"
+    },
+    "occurrence": {
+      "type": "number"
+    },
+    "randomSeed": {
+      "type": "number"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reinsurances": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "currency": {
+      "$ref": "./currency-table.json"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "$ref": "./scenario-group.json"
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "$ref": "./la-scenario.json"
+      }
+    }
+  }
+}

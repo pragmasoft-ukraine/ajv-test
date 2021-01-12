@@ -24,6 +24,6 @@
       "typeRoots": ["./node_modules/@types"],
       "outDir": "build"
     },
-    "exclude": ["cdk.out", "node_modules", "**/*.spec.ts", "build"]
+    "exclude": ["cdk.out", "node_modules", "**/*.test.ts", "**/*.spec.ts", "build"]
   }
   

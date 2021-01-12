@@ -1,0 +1,17 @@
+{
+  "$id": "http://example.com/schemas/currency-table.json",
+  "description": "Table of currency rates",
+  "additionalProperties": false,
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "string"
+      },
+      "rate": {
+        "type": "number"
+      }
+    }
+  }
+}

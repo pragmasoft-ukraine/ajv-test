@@ -1,0 +1,249 @@
+[
+    {
+        "scenario": {
+            "mapExpandedNaics": [
+                "31-33",
+                "42",
+                "423",
+                "4233",
+                "42332"
+            ],
+            "buildExpandedNaics": [
+                "23341",
+                "2334",
+                "233",
+                "23"
+            ],
+            "selectedNodeId": "4C300",
+            "multiSelectedNodeId": [
+                "4C300",
+                "4C700"
+            ],
+            "filters": [
+                {
+                    "type": "2",
+                    "id": "FU"
+                }
+            ],
+            "scenarioFilters": [
+                {
+                    "key": "policytype-0",
+                    "column": "policytype",
+                    "filter": {
+                        "options": {},
+                        "values": [
+                            "Product liability",
+                            "Marine liability"
+                        ],
+                        "portfolioOptions": []
+                    },
+                    "inverted": false,
+                    "includeNull": false,
+                    "naics": {
+                        "values": []
+                    }
+                }
+            ],
+            "portfolioFilters": [
+                {
+                    "key": "policytype-0",
+                    "column": "policytype",
+                    "filter": {
+                        "options": {},
+                        "values": [
+                            "Product liability",
+                            "Marine liability"
+                        ],
+                        "portfolioOptions": []
+                    },
+                    "inverted": false,
+                    "includeNull": false,
+                    "naics": {
+                        "values": []
+                    }
+                }
+            ],
+            "portfolioRequestFilters": [
+                {
+                    "property": "policytype",
+                    "industrycodes": [
+                        "string"
+                    ],
+                    "in": [
+                        "string"
+                    ],
+                    "notin": [
+                        "string"
+                    ],
+                    "bvefore": "string",
+                    "after": "string",
+                    "gte": 0,
+                    "lte": 0,
+                    "include_null": true
+                }
+            ],
+            "buildModel": {
+                "fullTree": {
+                    "level": 0,
+                    "nodeId": 0,
+                    "hierarchy": [
+                        "string"
+                    ],
+                    "customers": [
+                        null
+                    ],
+                    "suppliers": [
+                        null
+                    ],
+                    "parentId": 0,
+                    "type": "customers"
+                },
+                "nextId": 0
+            },
+            "tab": 0,
+            "portfolio": {
+                "enabled": true,
+                "name": "string"
+            },
+            "settings": {
+                "currency": "USD",
+                "defenceCosts": {
+                    "additionalProp1": {
+                        "value": 2,
+                        "range": [
+                            0,
+                            100
+                        ],
+                        "minetary": [
+                            10000,
+                            1000000
+                        ]
+                    },
+                    "additionalProp2": {
+                        "value": 2,
+                        "range": [
+                            0,
+                            100
+                        ],
+                        "minetary": [
+                            10000,
+                            1000000
+                        ]
+                    },
+                    "additionalProp3": {
+                        "value": 2,
+                        "range": [
+                            0,
+                            100
+                        ],
+                        "minetary": [
+                            10000,
+                            1000000
+                        ]
+                    }
+                },
+                "nodes": {
+                    "additionalProp1": {
+                        "accounts": 1,
+                        "culpability": 0,
+                        "liabilityBasis": 0,
+                        "locked": {},
+                        "marketShareMechanism": 3,
+                        "proRateAccounts": [
+                            null,
+                            1
+                        ],
+                        "naics": [
+                            "236118"
+                        ],
+                        "share": {
+                            "Aviation liability": 5.88235294117647
+                        }
+                    },
+                    "additionalProp2": {
+                        "accounts": 1,
+                        "culpability": 0,
+                        "liabilityBasis": 0,
+                        "locked": {},
+                        "marketShareMechanism": 3,
+                        "proRateAccounts": [
+                            null,
+                            1
+                        ],
+                        "naics": [
+                            "236118"
+                        ],
+                        "share": {
+                            "Aviation liability": 5.88235294117647
+                        }
+                    },
+                    "additionalProp3": {
+                        "accounts": 1,
+                        "culpability": 0,
+                        "liabilityBasis": 0,
+                        "locked": {},
+                        "marketShareMechanism": 3,
+                        "proRateAccounts": [
+                            null,
+                            1
+                        ],
+                        "naics": [
+                            "236118"
+                        ],
+                        "share": {
+                            "Aviation liability": 5.88235294117647
+                        }
+                    }
+                },
+                "eco": {
+                    "value": 150000000,
+                    "range": [
+                        125000000,
+                        1000000000
+                    ]
+                },
+                "noneco": {
+                    "value": 150000000,
+                    "range": [
+                        125000000,
+                        1000000000
+                    ]
+                },
+                "proRateCulpableAccounts": 1,
+                "multiYear": {
+                    "activated": false,
+                    "calendarYear": [
+                        {
+                            "year": "2011",
+                            "value": 100
+                        }
+                    ],
+                    "accountYear": [
+                        {
+                            "year": "2011",
+                            "value": 100
+                        }
+                    ]
+                }
+            },
+            "linkMode": 0,
+            "linkId": 0
+        },
+        "metrics": [
+            "string"
+        ],
+        "currency": [
+            {
+                "code": "string",
+                "rate": 0
+            }
+        ],
+        "contracts": [
+            {}
+        ],
+        "reinsurances": [
+            {}
+        ],
+        "background": true
+    }
+]

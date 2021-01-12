@@ -1,0 +1,50 @@
+{
+  "$id": "http://example.com/schemas/scenariofilter.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "column": {
+      "type": "string"
+    },
+    "filter": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "portfolioOptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "inverted": {
+      "type": "boolean"
+    },
+    "includeNull": {
+      "type": "boolean"
+    },
+    "naics": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

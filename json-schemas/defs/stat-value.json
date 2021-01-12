@@ -1,0 +1,33 @@
+{
+  "$id": "http://example.com/schemas/stat-value.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "min",
+    "max",
+    "median",
+    "q1",
+    "q3",
+    "average"
+  ],
+  "properties": {
+    "min": {
+      "type": "number"
+    },
+    "max": {
+      "type": "number"
+    },
+    "median": {
+      "type": "number"
+    },
+    "q1": {
+      "type": "number"
+    },
+    "q3": {
+      "type": "number"
+    },
+    "average": {
+      "type": "number"
+    }
+  }
+}

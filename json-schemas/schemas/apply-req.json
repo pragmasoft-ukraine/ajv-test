@@ -1,0 +1,35 @@
+{
+  "$id": "http://example.com/schemas/apply-req.json",
+  "description": "Scenario properties batch request",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scenario": {
+      "$ref": "./scenariomodel.json"
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "currency": {
+      "$ref": "./currency-table.json"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reinsurances": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "background": {
+      "type": "boolean"
+    }
+  }
+}
