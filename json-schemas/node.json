@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/node.json",
+  "$id": "node.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {

@@ -1,31 +1,30 @@
 {
-  "$id": "http://example.com/schemas/scenario-group.json",
+  "$id": "lossallocation-group.json",
   "type": "object",
   "additionalProperties": false,
   "description": "Scenario group",
   "required": [
-    "index",
     "title",
-    "occurrence",
-    "type",
-    "probability",
-    "scenarios"
+    "scenarios",
+    "settings"
   ],
   "properties": {
-    "index": {
-      "type": "number"
-    },
     "title": {
       "type": "string"
     },
-    "occurrence": {
-      "type": "number"
-    },
-    "type": {
-      "type": "number"
-    },
-    "probability": {
-      "type": "number"
+    "settings": {
+      "type": "object",
+      "properties": {
+        "occurrence": {
+          "type": "number"
+        },
+        "type": {
+          "type": "number"
+        },
+        "probability": {
+          "type": "number"
+        }
+      }
     },
     "scenarios": {
       "type": "array",

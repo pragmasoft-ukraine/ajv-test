@@ -1,0 +1,47 @@
+{
+    "$id": "lossallocation-post-request.json",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "settings": {
+            "type": "object",
+            "properties": {
+                "occurrence": {
+                    "type": "integer"
+                },
+                "numberOfRuns": {
+                    "type": "integer"
+                },
+                "keepRandomSeed": {
+                    "type": "integer"
+                },
+                "randomSeed": {
+                    "type": "integer"
+                }
+            }
+        },
+        "groups": {
+            "type": "array",
+            "items": {
+                "$ref": "lossallocation-group.json"
+            }
+        },
+        "shallowCopied": {
+            "type": "boolean"
+        }
+    }
+}

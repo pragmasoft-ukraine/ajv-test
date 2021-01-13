@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/apply-req.json",
+  "$id": "apply-req.json",
   "description": "Scenario properties batch request",
   "type": "array",
   "items": {
@@ -7,7 +7,7 @@
     "additionalProperties": false,
     "properties": {
       "scenario": {
-        "$ref": "./scenariomodel.json"
+        "$ref": "scenariomodel.json"
       },
       "metrics": {
         "type": "array",
@@ -16,7 +16,7 @@
         }
       },
       "currency": {
-        "$ref": "./currency-table.json"
+        "$ref": "currency-table.json"
       },
       "contracts": {
         "type": "array",

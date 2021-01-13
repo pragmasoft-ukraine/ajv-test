@@ -1,0 +1,67 @@
+{
+    "metadata": {
+        "author": "Maxsym",
+        "timestamp": 1610534363741,
+        "title": "testalloc"
+    },
+    "settings": {
+        "occurrence": 0,
+        "numberOfRuns": 100,
+        "keepRandomSeed": 0,
+        "randomSeed": 467643489
+    },
+    "groups": [
+        {
+            "title": "Accommodation",
+            "scenarios": [
+                "3a7d067e-26cf-4912-ba2c-32da52aeffc7"
+            ],
+            "settings": {
+                "occurrence": 0,
+                "type": 0
+            }
+        },
+        {
+            "title": "Company implosion",
+            "scenarios": [
+                "e2d227d6-b981-4ca6-a300-3439d035f751",
+                "6466382e-0abf-4d8f-b505-bf59d1b1a0be",
+                "a155ee95-3746-4e95-8acf-6496cd97e962",
+                "6227b19a-a36b-4c22-90c9-d17b488da4b8",
+                "6ac295fd-55cc-4b9a-920c-0c01046f952a",
+                "64ef8a2a-3b5f-4e61-860b-f4961055aa3a"
+            ],
+            "settings": {
+                "occurrence": 0,
+                "type": 1,
+                "probability": 1
+            }
+        },
+        {
+            "title": "Libor",
+            "scenarios": [
+                "8e2dd3cb-5498-4c37-9177-f2223ba3f7fb"
+            ],
+            "settings": {
+                "occurrence": 1,
+                "type": 1,
+                "probability": 1
+            }
+        },
+        {
+            "title": "Merger",
+            "scenarios": [
+                "d676705e-2c6e-4735-b4aa-4a483eb94412",
+                "f67acfab-dc01-4a7d-b46f-9bb15b07a3f7",
+                "922dbd64-24c2-4346-bd0e-b5e2b9816187",
+                "2efd8de0-ca5c-4f79-9636-4580d404737c"
+            ],
+            "settings": {
+                "occurrence": 0,
+                "type": 1,
+                "probability": 1
+            }
+        }
+    ],
+    "shallowCopied": false
+}

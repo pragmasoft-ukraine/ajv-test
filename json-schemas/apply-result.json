@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/apply-result.json",
+  "$id": "apply-result.json",
   "description": "Scenario properties batch result",
   "type": "array",
   "items": {

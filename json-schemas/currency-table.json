@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/currency-table.json",
+  "$id": "currency-table.json",
   "description": "Table of currency rates",
   "type": "array",
   "items": {

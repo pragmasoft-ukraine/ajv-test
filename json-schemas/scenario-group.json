@@ -1,0 +1,38 @@
+{
+  "$id": "scenario-group.json",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Scenario group",
+  "required": [
+    "index",
+    "title",
+    "occurrence",
+    "type",
+    "probability",
+    "scenarios"
+  ],
+  "properties": {
+    "index": {
+      "type": "number"
+    },
+    "title": {
+      "type": "string"
+    },
+    "occurrence": {
+      "type": "number"
+    },
+    "type": {
+      "type": "number"
+    },
+    "probability": {
+      "type": "number"
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  }
+}

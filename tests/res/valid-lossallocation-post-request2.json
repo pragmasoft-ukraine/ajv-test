@@ -1,0 +1,55 @@
+{
+    "metadata": {
+        "author": "Maxsym",
+        "timestamp": 1610534495252,
+        "title": "testall2"
+    },
+    "settings": {
+        "occurrence": 0,
+        "numberOfRuns": 100,
+        "keepRandomSeed": 0,
+        "randomSeed": 467643489
+    },
+    "groups": [
+        {
+            "title": "Company implosion",
+            "scenarios": [
+                "2ddcb052-c7f4-4f21-88c1-fa681645c3b6",
+                "a53506c6-b15f-453e-b676-125d03f5bede",
+                "eca38796-07a2-44c7-8552-b1bc0e902d71",
+                "d246a4fc-ba22-4d7f-88ca-5d8568d0a421",
+                "94dafb52-7f5d-4ada-842d-17088d89edaf"
+            ],
+            "settings": {
+                "occurrence": 0,
+                "type": 1,
+                "probability": 1
+            }
+        },
+        {
+            "title": "Libor",
+            "scenarios": [
+                "3b6aff9f-3bd2-498c-b509-adaa8de3a66a"
+            ],
+            "settings": {
+                "occurrence": 1,
+                "type": 1,
+                "probability": 1
+            }
+        },
+        {
+            "title": "Merger",
+            "scenarios": [
+                "ab4e00a7-9ab5-43e5-89be-09c25fbbc0b1",
+                "3fdec791-e70a-47d2-b343-973744c90653",
+                "881c109d-e92e-4503-934d-a371c34eaa8e"
+            ],
+            "settings": {
+                "occurrence": 0,
+                "type": 1,
+                "probability": 1
+            }
+        }
+    ],
+    "shallowCopied": false
+}

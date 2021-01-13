@@ -1,66 +1,40 @@
-import Ajv, { ValidateFunction } from 'ajv';
+import Ajv, { SchemaObject, ValidateFunction } from 'ajv';
 
-import applyRequestScheme from '../json-schemas/schemas/apply-req.json';
-import applyResultScheme from '../json-schemas/schemas/apply-result.json';
-import laCalculationRequestScheme from '../json-schemas/schemas/la-calc-req.json';
-import laResultScheme from '../json-schemas/schemas/la-result.json';
-import scenarioDataScheme from '../json-schemas/schemas/scenariodata.json';
+export class LoadMainSchemaError extends Error {}
+export class LoadReferenceSchemaError extends Error {}
 
-import scenarioModelScheme from '../json-schemas/defs/scenariomodel.json';
-import scenarioFilterScheme from '../json-schemas/defs/scenariofilter.json';
-import portfolioRequestFilterScheme from '../json-schemas/defs/portfolio-req-filter.json';
-import nodeTreeScheme from '../json-schemas/defs/nodetree.json';
-import settingsScheme from '../json-schemas/defs/settings.json';
-import nodeScheme from '../json-schemas/defs/node.json';
-import currencyTableScheme from '../json-schemas/defs/currency-table.json';
-import laScenarioTableScheme from '../json-schemas/defs/la-scenario.json';
-import scenarioGroupTableScheme from '../json-schemas/defs/scenario-group.json';
-import statValueScheme from '../json-schemas/defs/stat-value.json';
-
-/* TODO add schemas:
- * /v1/lossallocation [POST]
- * /v1/scenarios [POST]
+/* TODO:
+ * Change loadShema function to get data by url
+ * exception tests
  */
-export type S3ObjectSchemaId =
-  // | 'http://example.com/schemas/apply-req.json'
-  // | 'http://example.com/schemas/apply-result.json'
-  // | 'http://example.com/schemas/la-calc-req.json'
-  // | 'http://example.com/schemas/la-result.json'
-  'http://example.com/schemas/scenariodata.json';
-
 export class S3PayloadValidationService {
-  private ajv = new Ajv({
-    allErrors: true,
-    schemas: [
-      applyRequestScheme,
-      applyResultScheme,
-      laCalculationRequestScheme,
-      laResultScheme,
-      scenarioDataScheme,
-      scenarioModelScheme,
-      scenarioFilterScheme,
-      portfolioRequestFilterScheme,
-      nodeTreeScheme,
-      settingsScheme,
-      nodeScheme,
-      currencyTableScheme,
-      laScenarioTableScheme,
-      scenarioGroupTableScheme,
-      statValueScheme,
-    ],
-  }).addFormat('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
+  constructor(private ajv: Ajv) {}
 
-  // private ojbectSchemeMap: {
-  //   [key in S3ObjectSchemaId]: SchemaObject;
-  // } = {
-  //   applyRequest: applyRequestScheme,
-  //   applyResult: applyResultScheme,
-  //   laCalculationRequest: laCalculationRequestScheme,
-  //   laResult: laResultScheme,
-  //   scenarioData: scenarioDataScheme,
-  // };
-
-  getObjectValidator(objectSchemaId: S3ObjectSchemaId): ValidateFunction<any> {
-    return this.ajv.getSchema(objectSchemaId)!;
+  /**
+   * @param objectSchemaUrl url of object schema
+   * @returns validation function for giving shcema url
+   * @throws Error when cannot load schema or schema is invalid
+   */
+  async getObjectValidator(objectSchemaUrl: string): Promise<ValidateFunction<any>> {
+    let schema: SchemaObject;
+    try {
+      schema = await loadSchema(objectSchemaUrl, true);
+    } catch (err) {
+      console.log(err);
+      throw new LoadMainSchemaError('Load main schema error: ' + err);
+    }
+    try {
+      return await this.ajv.compileAsync(schema);
+    } catch (err) {
+      console.log(err);
+      throw new LoadReferenceSchemaError('Load reference schema error: ' + err);
+    }
   }
 }
+
+export const loadSchema = async (url: string, absolutePath = false): Promise<SchemaObject> => {
+  if (absolutePath) {
+    return import(url); // TODO load from remote
+  }
+  return import(`../json-schemas/${url}`);
+};

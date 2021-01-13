@@ -1,0 +1,10 @@
+{
+  "$id": "schema-with-invalid-reference-url.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scenario": {
+      "$ref": "invalid_url.json"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/settings.json",
+  "$id": "settings.json",
   "description": "Culpability properties",
   "type": "object",
   "additionalProperties": false,
@@ -36,7 +36,7 @@
     "nodes": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "./node.json"
+        "$ref": "node.json"
       }
     },
     "eco": {

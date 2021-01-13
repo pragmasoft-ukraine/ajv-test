@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/la-calc-req.json",
+  "$id": "la-calc-req.json",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -39,18 +39,18 @@
       }
     },
     "currency": {
-      "$ref": "./currency-table.json"
+      "$ref": "currency-table.json"
     },
     "groups": {
       "type": "array",
       "items": {
-        "$ref": "./scenario-group.json"
+        "$ref": "scenario-group.json"
       }
     },
     "scenarios": {
       "type": "array",
       "items": {
-        "$ref": "./la-scenario.json"
+        "$ref": "la-scenario.json"
       }
     }
   }

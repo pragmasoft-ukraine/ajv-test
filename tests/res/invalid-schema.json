@@ -1,0 +1,7 @@
+{
+    "$id": "invalid_schema.json",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {asdfsadf
+    }
+}

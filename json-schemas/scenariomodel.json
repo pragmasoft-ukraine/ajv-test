@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/scenariomodel.json",
+  "$id": "scenariomodel.json",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -48,14 +48,14 @@
       "description": "Culpability -> Scenario filters",
       "type": "array",
       "items": {
-        "$ref": "./scenariofilter.json"
+        "$ref": "scenariofilter.json"
       }
     },
     "portfolioFilters": {
       "description": "Portfolio filters",
       "type": "array",
       "items": {
-        "$ref": "./scenariofilter.json"
+        "$ref": "scenariofilter.json"
       }
     },
     "portfolioRequestFilters": {
@@ -64,10 +64,10 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "./portfolio-req-filter.json"
+            "$ref": "portfolio-req-filter.json"
           },
           {
-            "$ref": "./scenariofilter.json"
+            "$ref": "scenariofilter.json"
           }
         ]
       }
@@ -77,7 +77,7 @@
       "type": "object",
       "properties": {
         "fullTree": {
-          "$ref": "./nodetree.json"
+          "$ref": "nodetree.json"
         },
         "nextId": {
           "type": "integer"
@@ -99,7 +99,7 @@
       }
     },
     "settings": {
-      "$ref": "./settings.json"
+      "$ref": "settings.json"
     },
     "linkMode": {
       "type": "integer"

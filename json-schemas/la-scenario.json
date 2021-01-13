@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/la-scenario.json",
+  "$id": "la-scenario.json",
   "description": "Scenario in LA calculation request",
   "type": "object",
   "additionalProperties": false,
@@ -27,27 +27,27 @@
           "type": "object"
         },
         "settings": {
-          "$ref": "./settings.json"
+          "$ref": "settings.json"
         },
         "portfolioRequestFilters": {
           "description": "Portfolio reuest filters",
           "type": "array",
           "items": {
-            "$ref": "./portfolio-req-filter.json"
+            "$ref": "portfolio-req-filter.json"
           }
         },
         "scenarioFilters": {
           "description": "Culpability -> Scenario filters",
           "type": "array",
           "items": {
-            "$ref": "./scenariofilter.json"
+            "$ref": "scenariofilter.json"
           }
         },
         "portfolioFilters": {
           "description": "Portfolio filters",
           "type": "array",
           "items": {
-            "$ref": "./scenariofilter.json"
+            "$ref": "scenariofilter.json"
           }
         }
       }

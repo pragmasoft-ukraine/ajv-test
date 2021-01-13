@@ -1,5 +1,5 @@
 {
-  "$id": "http://example.com/schemas/nodetree.json",
+  "$id": "nodetree.json",
   "type": [
     "object",
     "null"
@@ -33,14 +33,14 @@
       "type": "array",
       "description": "Array of NodeTree, recursive",
       "items": {
-        "$ref": "./nodetree.json"
+        "$ref": "nodetree.json"
       }
     },
     "suppliers": {
       "type": "array",
       "description": "Array of NodeTree, recursive",
       "items": {
-        "$ref": "./nodetree.json"
+        "$ref": "nodetree.json"
       }
     },
     "parentId": {
