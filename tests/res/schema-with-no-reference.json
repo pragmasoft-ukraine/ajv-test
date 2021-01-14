@@ -1,0 +1,10 @@
+{
+    "$id": "../tests/res/schema-with-no-reference.json",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string"
+        }
+    }
+}

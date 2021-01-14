@@ -1,4 +1,10 @@
-import { LoadMainSchemaError, LoadReferenceSchemaError, S3PayloadValidationService } from '../services/validation-service';
+import {
+  LoadMainSchemaError,
+  LoadReferenceSchemaError,
+  loadSchemaFromLocale,
+  loadSchemaByUrl,
+  S3PayloadValidationService,
+} from '../services/validation-service';
 
 import validScenariosPostRequest1 from './res/valid-scenarios-post-request1.json';
 import validScenariosPostRequest2 from './res/valid-scenarios-post-request2.json';
@@ -8,8 +14,6 @@ import validLossallocationPostRequest1 from './res/valid-lossallocation-post-req
 import validLossallocationPostRequest2 from './res/valid-lossallocation-post-request2.json';
 
 import invalidRequest from './res/invalidRequest.json';
-
-import { loadSchema } from '../services/validation-service';
 
 import { UUID_REGEX } from '../constants/constants';
 
@@ -22,19 +26,20 @@ interface SchemaTestCase {
   expected: boolean;
 }
 
-let validationService: S3PayloadValidationService;
 let ajv: Ajv;
-beforeEach(() => {
-  ajv = new Ajv({
-    loadSchema,
-    allErrors: true,
-  }).addFormat('uuid', UUID_REGEX);
-  validationService = new S3PayloadValidationService(ajv);
-});
+let validationService: S3PayloadValidationService;
 
 describe('S3PayloadValidationService validation', () => {
-  const scenarioPostRequestSchemaLocation = '../json-schemas/scenarios-post-request.json';
-  const lossallocationPostRequestSchemaLocation = '../json-schemas/lossallocation-post-request.json';
+  beforeEach(() => {
+    ajv = new Ajv({
+      loadSchema: loadSchemaByUrl,
+      allErrors: true,
+    }).addFormat('uuid', UUID_REGEX);
+    validationService = new S3PayloadValidationService(ajv);
+  });
+  const scenarioPostRequestSchemaLocation = 'scenarios-post-request.json';
+  const lossallocationPostRequestSchemaLocation = 'lossallocation-post-request.json';
+  const schemaWithNoReferenceLocation = '../tests/res/schema-with-no-reference.json';
 
   const validTestCases: SchemaTestCase[] = [
     {
@@ -108,6 +113,19 @@ describe('S3PayloadValidationService validation', () => {
     expect(valid).toEqual(expected);
   };
 
+  test('Schema should be loaded only once', async () => {
+    const loadSchemaFromLocaleMock = jest.fn().mockImplementation(loadSchemaFromLocale);
+    ajv = new Ajv({
+      loadSchema: loadSchemaFromLocaleMock,
+      allErrors: true,
+    }).addFormat('uuid', UUID_REGEX);
+    validationService = new S3PayloadValidationService(ajv);
+    // load same schema twice
+    await validationService.getObjectValidator(schemaWithNoReferenceLocation);
+    await validationService.getObjectValidator(schemaWithNoReferenceLocation);
+    expect(loadSchemaFromLocaleMock.mock.calls.length).toBe(1);
+  });
+
   test('Validator should return list of errors when payload is invalid', async () => {
     const validator = await validationService.getObjectValidator(scenarioPostRequestSchemaLocation);
     const valid = validator(invalidRequest);
@@ -118,6 +136,11 @@ describe('S3PayloadValidationService validation', () => {
 });
 
 describe('S3PayloadValidationService error handling', () => {
+  ajv = new Ajv({
+    loadSchema: loadSchemaFromLocale,
+    allErrors: true,
+  }).addFormat('uuid', UUID_REGEX);
+  validationService = new S3PayloadValidationService(ajv);
   const validUrlWithInvalidSchema = '../tests/res/invalid-schema.json';
   const schemaWithInvalidReferenceUrl = '../tests/res/schema-with-invalid-reference-url.json';
   const schemaWithInvalidReferenceSchema = '../tests/res/schema-with-invalid-reference-schema.json';

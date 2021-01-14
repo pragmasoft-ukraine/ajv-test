@@ -1,15 +1,12 @@
 import { S3PayloadValidationService } from './services/validation-service';
+import Ajv from 'ajv';
+import { loadSchemaByUrl } from './services/validation-service';
+import { UUID_REGEX } from './constants/constants';
 
 import validScenariosPostRequest4 from './tests/res/valid-scenarios-post-request4.json';
 
-import Ajv from 'ajv';
-
-import { loadSchema } from './services/validation-service';
-
-import { UUID_REGEX } from './constants/constants';
-
 export const ajv = new Ajv({
-  loadSchema,
+  loadSchema: loadSchemaByUrl,
   allErrors: true,
 }).addFormat('uuid', UUID_REGEX);
 
@@ -17,7 +14,12 @@ const validationService = new S3PayloadValidationService(ajv);
 
 const cases = [
   {
-    objectId: '../json-schemas/scenarios-post-request.json',
+    objectId: 'scenarios-post-request.json',
+    payload: validScenariosPostRequest4,
+    expected: true,
+  },
+  {
+    objectId: 'scenarios-post-request.json',
     payload: validScenariosPostRequest4,
     expected: true,
   },
@@ -29,4 +31,6 @@ const run = async ({ objectId, payload, expected }: any) => {
   console.log(validator.errors);
 };
 
-cases.forEach(run);
+run(cases[0]).then(() => {
+  run(cases[1]);
+});
